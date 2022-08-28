@@ -11,7 +11,7 @@ const LocationSearch = () => {
                 type="text" 
                 name="location-search" 
                 className="rounded-xl bg-[rgba(255,255,255,0.2)] border-white border-[1.5px] text-center placeholder:text-xs placeholder:italic pb-0.5"
-                placeholder='enter zipcode' />
+                placeholder='enter zipcode or city' />
                 <p className='text-xs'>units:</p>
                 <input type="radio" name='imperial' id='imperial' className='h-2.5 w-2.5 -mr-1' />
                 <label htmlFor='imperial' className='text-[.5rem]'>imperial</label>
