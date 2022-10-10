@@ -1,12 +1,11 @@
-const AdditionalStats = props => {
-	const {
-		windSpeed = '8',
-		windDirection = 'NNW',
-		precipitation = '0',
-		humidity = '0',
-		cloudCoverage = '0',
-		visibility = '0',
-	} = props
+const AdditionalStats = ({
+	windSpeed = '0',
+	windDirection = 'NNW',
+	precipitation = '0',
+	humidity = '0',
+	cloudCoverage = '0',
+	visibility = '0',
+}) => {
 	return (
 		<div className='flex flex-row gap-2 self-center justify-between rounded-xl bg-[rgba(255,255,255,0.03)] shadow-md p-6 mt-6 text-xs w-11/12 md:w-[370px]'>
 			<div className='flex flex-col items-start gap-3'>

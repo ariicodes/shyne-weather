@@ -1,21 +1,20 @@
-const TempInfo = props => {
-	let {
-		city = 'Washington',
-		state = 'District of Columbia',
-		country = 'USA',
-		lowTemp = 68,
-		highTemp = 85,
-		currentTemp = 70,
-		imgSrc = '//cdn.weatherapi.com/weather/64x64/day/176.png',
-		imgAlt = 'icon',
-		conditions = 'raining',
-		feelsLike = 70,
-		sunrise = '6:30 AM',
-		sunset = '8:30 PM',
-	} = props
+const TempInfo = ({
+	city = 'Washington',
+	state = 'District of Columbia',
+	country = 'USA',
+	lowTemp = 68,
+	highTemp = 85,
+	currentTemp = 70,
+	imgSrc = '//cdn.weatherapi.com/weather/64x64/day/176.png',
+	imgAlt = 'icon',
+	conditions = 'raining',
+	feelsLike = 70,
+	sunrise = '6:30 AM',
+	sunset = '8:30 PM',
+}) => {
 	return (
 		<div className='flex flex-col items-center self-center gap-2 w-screen px-6 md:w-[390px]'>
-			<p className='font-light italic'>
+			<p className='font-light italic text-center'>
 				{city}, {state}, {country}
 			</p>
 			<div className='flex flex-row w-full justify-around'>
