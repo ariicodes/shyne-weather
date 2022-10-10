@@ -14,7 +14,7 @@ const TempInfo = ({
 }) => {
 	return (
 		<div className='flex flex-col items-center self-center gap-2 w-screen px-6 md:w-[390px]'>
-			<p className='font-light italic text-center'>
+			<p className='font-light italic text-center mb-4'>
 				{city}, {state}, {country}
 			</p>
 			<div className='flex flex-row w-full justify-around'>
@@ -34,16 +34,16 @@ const TempInfo = ({
 					<p className='font-medium text-lg xl:text-2xl'>{highTemp}º</p>
 				</div>
 			</div>
-			<h2 className='text-base xl:text-xl'>{conditions}</h2>
+			<h2 className='text-base -mb-2 xl:text-xl'>{conditions}</h2>
 			<p className='font-light text-sm xl:text-lg'>feels like: {feelsLike}º</p>
 			<div className='flex flex-row justify-between w-full px-2 text-xs xl:text-base'>
 				<div className='flex flex-col items-start'>
 					<p className='xl:text-lg'>sunrise</p>
-					<p className='xl:text-lg'>{sunrise}</p>
+					<p className='xl:text-sm'>{sunrise}</p>
 				</div>
 				<div className='flex flex-col items-end'>
 					<p className='xl:text-lg'>sunset</p>
-					<p className='xl:text-lg'>{sunset}</p>
+					<p className='xl:text-sm'>{sunset}</p>
 				</div>
 			</div>
 		</div>

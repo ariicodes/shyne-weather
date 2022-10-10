@@ -4,8 +4,9 @@ const getDayName = date => {
 	return days[d.getDay() + 1]
 }
 
-const dateCheck = (fullDate, date) => (fullDate.includes(date) ? true : false)
-
 const roundNum = num => parseFloat(num).toFixed()
 
-export { getDayName, dateCheck, roundNum }
+const trunc = str => str.substring(0, 45)
+
+
+export { getDayName, roundNum, trunc }

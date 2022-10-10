@@ -7,11 +7,15 @@ const LocationSearch = ({ submit, val, searchChange }) => {
 	return (
 		<div className=''>
 			<form
-				onSubmit={submit}
+				onSubmit={event => {
+					event.preventDefault()
+					submit()
+                    event.target.reset()
+				}}
 				className='flex flex-row justify-center items-center gap-3 font-light'
 			>
 				<input
-                    value={val}
+					value={val}
 					onChange={searchChange}
 					type='text'
 					name='location'
