@@ -17,7 +17,7 @@ const App = () => {
 	const [show, setShow] = useState(false)
 
 	const handleSubmit = useCallback(() => {
-		const URL = `http://api.weatherapi.com/v1/forecast.json?key=d88a02f72fc847e8aea234600221002&q=${location}&days=8&alerts=yes`
+		const URL = `https://api.weatherapi.com/v1/forecast.json?key=d88a02f72fc847e8aea234600221002&q=${location}&days=8&alerts=yes`
 		fetch(URL)
 			.then(res => res.json())
 			.then(data => {
@@ -52,8 +52,10 @@ const App = () => {
 						searchChange={handleLocationChange}
 					/>
 					<img
-						className='w-20 h-20 self-center mt-4'
-						src='http://cdn.weatherapi.com/weather/64x64/day/113.png'
+						width='80'
+						height='80'
+						className='self-center mt-4'
+						src='https://cdn.weatherapi.com/weather/64x64/day/113.png'
 						alt='sun icon'
 					/>
 				</div>
@@ -105,23 +107,6 @@ const App = () => {
 							action={() => setShow(true)}
 						/>
 					)}
-					{/* <Alert
-						alert={
-							<>
-								{weather.alerts.alert.length < 1 ? (
-									'No Alerts'
-								) : (
-									<div>
-										{weather.alerts.alert.map(d => (
-											<p className='text-xs'>{trunc(d.headline)}...</p>
-										))}
-										<p className='text-sm'>Click to read more!</p>
-									</div>
-								)}
-							</>
-						}
-						action={() => setShow(true)}
-					/> */}
 					<TempInfo
 						city={weather.location.name}
 						state={weather.location.region}
@@ -156,8 +141,9 @@ const App = () => {
 								<div className='flex flex-col items-center'>
 									<p className='font-medium pb-1'>{getDayName(day.date)}</p>
 									<img
-										className='w-7'
-										src={`http:${day.day.condition.icon}`}
+										width='28'
+										height='28'
+										src={`https:${day.day.condition.icon}`}
 										alt='weather icon'
 									/>
 									<p className='font-bold pt-1'>

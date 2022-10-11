@@ -24,7 +24,9 @@ const TempInfo = ({
 				</div>
 				<div className='flex flex-col items-center'>
 					<img
-						src={`http:${imgSrc}`}
+						width='64'
+						height='64'
+						src={`https:${imgSrc}`}
 						alt={imgAlt}
 					/>
 					<h1 className='text-5xl font-bold'>{currentTemp}º</h1>
