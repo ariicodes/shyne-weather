@@ -5,24 +5,23 @@ const LocationSearch = ({ submit, val, searchChange }) => {
 	const magGlass = <FontAwesomeIcon icon={faMagnifyingGlass} />
 
 	return (
-		<div className=''>
+		<div>
 			<form
 				onSubmit={event => {
 					event.preventDefault()
 					submit()
-                    event.target.reset()
 				}}
-				className='flex flex-row justify-center items-center gap-3 font-light'
+				className='flex flex-row justify-center items-center gap-2 mb-1 font-light'
 			>
 				<input
 					value={val}
 					onChange={searchChange}
 					type='text'
 					name='location'
-					className='rounded-xl bg-[rgba(255,255,255,0.2)] border-white border-[1.5px] text-center placeholder:text-xs placeholder:italic pb-0.5'
+					className='rounded-xl bg-[rgba(255,255,255,0.2)] border-white border-[1.5px] text-center placeholder:text-xs placeholder:italic pb-0.5 outline-none'
 					placeholder='enter zipcode or city'
 				/>
-				<p className='text-xs xl:text-sm'>units:</p>
+				{/* <p className='text-xs xl:text-sm'>units:</p>
 				<input
 					type='radio'
 					name='units'
@@ -46,8 +45,8 @@ const LocationSearch = ({ submit, val, searchChange }) => {
 					className='text-[.5rem] xl:text-xs'
 				>
 					metric
-				</label>
-				<button type='submit'>{magGlass}</button>
+				</label> */}
+				<button className='w-12 h-12 -mr-4' type='submit' aria-label='search button'>{magGlass}</button>
 			</form>
 		</div>
 	)

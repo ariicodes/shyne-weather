@@ -17,8 +17,7 @@ const App = () => {
 	const [show, setShow] = useState(false)
 
 	const handleSubmit = useCallback(() => {
-		const URL = `http://api.weatherapi.com/v1/forecast.json?key=d88a02f72fc847e8aea234600221002&q=${location}&days=6&alerts=yes`
-		console.log(URL)
+		const URL = `http://api.weatherapi.com/v1/forecast.json?key=d88a02f72fc847e8aea234600221002&q=${location}&days=8&alerts=yes`
 		fetch(URL)
 			.then(res => res.json())
 			.then(data => {
@@ -27,10 +26,7 @@ const App = () => {
 			.catch(e => console.log(e))
 	}, [location])
 
-	const handleLocationChange = event => {
-		console.log(event.target.value)
-		setLocation(event.target.value)
-	}
+	const handleLocationChange = event => setLocation(event.target.value)
 
 	useEffect(() => {
 		const keyHandler = event => {
@@ -48,20 +44,18 @@ const App = () => {
 	if (!weather) {
 		return (
 			<div className={mainStyling}>
-				<AlertModal
-					action={() => setShow(false)}
-					show={show}
-				/>
-				<div className='flex flex-col justify-center z-40'>
+				<div className='flex flex-col justify-center z-40 text-center absolute inset-0'>
+					<h1 className='text-4xl font-black mb-4'>Welcome to Shyne Weather</h1>
 					<LocationSearch
 						val={location}
 						submit={handleSubmit}
 						searchChange={handleLocationChange}
 					/>
-					<Alert />
-					<TempInfo />
-					<AdditionalStats />
-					<Forecast />
+					<img
+						className='w-20 h-20 self-center mt-4'
+						src='http://cdn.weatherapi.com/weather/64x64/day/113.png'
+						alt='sun icon'
+					/>
 				</div>
 			</div>
 		)
@@ -72,17 +66,17 @@ const App = () => {
 					details={weather.alerts.alert.map(d => {
 						return (
 							<>
-								<h3 className='font-black text-lg pt-4'>{d.headline}</h3>
-								<h4 className='font-medium uppercase text-lg text-center pt-4'>
+								<h3 className='font-black text-base pt-4'>{d.headline}</h3>
+								<h4 className='font-medium uppercase text-lg pt-4'>
 									Affected Areas:
 								</h4>
-								<ul className='grid grid-cols-2 gap-1 pb-10 text-sm'>
+								<ul className='grid grid-cols-2 gap-1 pb-8 text-sm'>
 									{d.areas.split(';').map(a => (
 										<li>{a}</li>
 									))}
 								</ul>
-								<p className='italic'>{d.desc}</p>
-								<p className='font-bold text-red-800 text-center pb-4'>
+								<p className='italic text-sm'>{d.desc}</p>
+								<p className='font-bold text-red-800 text-center py-4'>
 									{d.instruction}
 								</p>
 								<hr />
@@ -92,29 +86,42 @@ const App = () => {
 					action={() => setShow(false)}
 					show={show}
 				/>
-				<div className='flex flex-col justify-center z-40'>
+				<div className='flex flex-col justify-center z-40 absolute inset-0'>
 					<LocationSearch
 						val={location}
 						submit={handleSubmit}
 						searchChange={handleLocationChange}
 					/>
-					<Alert
+					{weather.alerts.alert.length < 1 ? null : (
+						<Alert
+							alert={
+								<div>
+									{weather.alerts.alert.map(d => (
+										<p className='text-xs'>{trunc(d.headline)}...</p>
+									))}
+									<p className='text-sm'>Click to read more!</p>
+								</div>
+							}
+							action={() => setShow(true)}
+						/>
+					)}
+					{/* <Alert
 						alert={
 							<>
 								{weather.alerts.alert.length < 1 ? (
-									''
+									'No Alerts'
 								) : (
 									<div>
 										{weather.alerts.alert.map(d => (
-										<p className='text-xs'>{trunc(d.headline)}...</p>
+											<p className='text-xs'>{trunc(d.headline)}...</p>
 										))}
-										<p>Click to read more!</p>
+										<p className='text-sm'>Click to read more!</p>
 									</div>
 								)}
 							</>
 						}
 						action={() => setShow(true)}
-					/>
+					/> */}
 					<TempInfo
 						city={weather.location.name}
 						state={weather.location.region}
@@ -144,19 +151,24 @@ const App = () => {
 						visibility={weather.current.vis_miles}
 					/>
 					<Forecast
-					forecast={
-						weather.forecast.forecastday.map(day => {
-							<div className='flex flex-col items-center'>
-								<p className='font-medium pb-1'>{getDayName(day.date)}</p>
-								<img
-									src={`http:${day.day.condition.icon}`}
-									alt='weather icon'
-								/>
-								<p className='font-bold pt-1'>{day.day.maxtemp_f}º</p>
-								<p className='font-light'>{day.day.mintemp_f}º</p>
-							</div>
-						})
-					}
+						forecast={weather.forecast.forecastday.map(day => {
+							return (
+								<div className='flex flex-col items-center'>
+									<p className='font-medium pb-1'>{getDayName(day.date)}</p>
+									<img
+										className='w-7'
+										src={`http:${day.day.condition.icon}`}
+										alt='weather icon'
+									/>
+									<p className='font-bold pt-1'>
+										{roundNum(day.day.maxtemp_f)}º
+									</p>
+									<p className='font-light text-white/50'>
+										{roundNum(day.day.mintemp_f)}º
+									</p>
+								</div>
+							)
+						})}
 					/>
 				</div>
 			</div>

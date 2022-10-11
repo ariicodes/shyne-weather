@@ -6,7 +6,7 @@ const getDayName = date => {
 
 const roundNum = num => parseFloat(num).toFixed()
 
-const trunc = str => str.substring(0, 45)
+const trunc = str => str.substring(0, 50)
 
 
 export { getDayName, roundNum, trunc }

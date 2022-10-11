@@ -1,11 +1,11 @@
-const AlertModal = ({ show, action, details = '< ==== No ALERTS! ==== >' }) => {
+const AlertModal = ({ show, action, details }) => {
 	if (!show) {
 		return null
 	}
 
 	return (
 		<div
-			className='modal box-border flex flex-col self-center bg-slate-400 text-black p-4 text-right rounded-xl w-screen h-screen md:w-[390px] shadow-md xl:text-base z-50 overflow-y-scroll absolute'
+			className='modal box-border flex flex-col self-center bg-slate-400 text-black p-4 text-right rounded-xl w-10/12 h-[95vh] md:w-[390px] shadow-md xl:text-base z-50 overflow-y-scroll absolute'
 			onClick={action}
 		>
 			<div

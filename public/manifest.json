@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Shyne Weather",
+  "name": "Shyne Weather App",
   "icons": [
     {
       "src": "favicon.ico",
