@@ -69,9 +69,13 @@ const App = () => {
 						return (
 							<>
 								<h3 className='font-black text-base pt-4'>{d.headline}</h3>
-								<h4 className='font-medium uppercase text-lg pt-4'>
-									Affected Areas:
-								</h4>
+								{d.areas.length < 1 ? (
+									''
+								) : (
+									<h4 className='font-medium uppercase text-lg pt-4'>
+										Affected Areas:
+									</h4>
+								)}
 								<ul className='grid grid-cols-2 gap-1 pb-8 text-sm'>
 									{d.areas.split(';').map(a => (
 										<li>{a}</li>
