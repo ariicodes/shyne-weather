@@ -1,7 +1,7 @@
 const getDayName = date => {
-	const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+	const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 	const d = new Date(date)
-	return days[d.getDay() + 1]
+	return days[d.getDay()]
 }
 
 const roundNum = num => parseFloat(num).toFixed()
