@@ -24,7 +24,7 @@ Shyne Weather App is a web application that utilizes the OpenWeather API to disp
 6. Access the application in your web browser at `http://localhost:3000`.
 
 ## Demo
-You can access a live demo of the Shyne Weather App [here]((https://shyne-weather.web.app/)).
+You can access a live demo of the Shyne Weather App here: https://shyne-weather.web.app/.
 
 ## Credits
 This project was created by *Ariela Israel*.
