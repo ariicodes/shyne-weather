@@ -1,7 +1,7 @@
 {
-	"name": "vite-migration",
+	"name": "shyne-weather",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.2.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -28,6 +28,6 @@
 		"eslint-plugin-react-refresh": "^0.4.7",
 		"typescript": "^5.2.2",
 		"vite": "^5.3.1",
-    "dotenv": "^16.0.3"
+		"dotenv": "^16.0.3"
 	}
 }
